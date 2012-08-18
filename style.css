@@ -1,0 +1,55 @@
+/* non-relevant styling */
+body {margin:20px auto; width:800px;}
+body, input, label, a, a:link  {
+    font-size:24px;
+    color:#000000;
+    text-decoration: none;
+}
+input, label {
+    color:#ffffff;
+}
+.underlabel {
+    padding:10px;
+    margin:20px 0px;
+    border:1px solid #777777;
+    box-shadow:inset 0px 0px 6px rgba(0,0,0,.5);
+    -webkit-box-shadow:inset 0px 0px 6px rgba(0,0,0,.5);
+    -moz-box-shadow:inset 0px 0px 6px rgba(0,0,0,.5);
+}
+.underlabel input {
+    background: none;
+    border:none;
+}
+.underlabel label {
+    padding:12px 10px 10px 10px;
+}
+
+
+/* relevant styling */
+.underlabel {
+    background-color: #838383; /* use whatever color you want, but make it the same as on line 46 and 54 */
+}
+.underlabel {
+    position:relative;
+}
+.underlabel label {             /* position the label absolutely, so it falls under the input field */
+    position:absolute;
+    z-index: 0;
+    top:0px;
+    left:0px;
+}
+.underlabel input {             /* layer the text field over the label */
+    position: relative;
+    z-index: 2;
+}
+.underlabel input:focus{        /* and then hide the label when the user clicks through */
+    background-color:#838383;
+}
+
+/* THE ONLY PROBLEM IS WHEN TEXT IS LEFT IN THE FIELD, BUT THE USER HAS CLICKED OUT */
+/* WHICH RESULTS IN SEARCH TEXT OVERLAYING THE SEARCH LABEL */
+/* SOLUTION WAS TO MAKE THE SEARCH FIELD REQUIRED, AND THEN WE COULD CHECK TO SEE IF THERE WAS VALID CONTENT */
+
+.underlabel input:valid {
+    background-color:#838383;
+}
